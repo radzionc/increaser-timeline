@@ -20,6 +20,9 @@ const Container = styled.div`
   box-shadow: 0 19px 38px rgba(0, 0, 0, 0.3), 0 15px 12px rgba(0, 0, 0, 0.22);
   border-radius: 5px;
   transition: background-color 800ms linear;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 `
 
 const Increaser = styled.a`
@@ -43,11 +46,13 @@ const TimeWaitsForNoOne = styled.a`
 `
 
 const ContainerWrapper = styled.div`
-  height: 100%;
-  width: 100%;
   display: flex;
-  justify-content: center;
-  align-items: center;
+  flex-direction: column;
+  height: 160px;
+  width: 400px;
+  @media (max-width: 640px) {
+    height: 120px;
+  }
 `
 
 export default class App extends React.Component {
