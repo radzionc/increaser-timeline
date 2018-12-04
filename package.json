@@ -59,6 +59,7 @@
     "dist"
   ],
   "dependencies": {
+    "luxon": "^1.8.2",
     "styled-components": "^4.1.1"
   }
 }

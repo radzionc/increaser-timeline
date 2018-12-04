@@ -1,9 +1,22 @@
 import React from 'react'
 import styled, { ThemeProvider } from 'styled-components'
 
-import { defaultTheme } from '../constants'
+import { defaultTheme, DEFAULT_MIN_HOURS, HOURS_IN_DAY, SECONDS_IN_HOUR, SECONDS_IN_MINUTE } from '../constants'
+import { toTime } from '../utils'
 
-export default class timeline extends React.Component {
+import Period from './period'
+
+const Periods = styled.div`
+  height: 100%;
+  display: flex;
+  position: relative;
+  flex-direction: row;
+  border-radius: 5px;
+  background-color: ${props => props.theme.backgroundColor};
+  overflow: hidden;
+`
+
+export default class Timeline extends React.Component {
   constructor(props) {
     super(props)
     this.state = {
@@ -13,12 +26,34 @@ export default class timeline extends React.Component {
   }
 
   render() {
-    const { wrapper: Wrapper, theme } = this.props
+    const { wrapper: Wrapper, theme, sets, minHours = DEFAULT_MIN_HOURS } = this.props
+    const Content = () => {
+      const setsAsTime = sets.map(({ start, end, color }) => ({
+        start: toTime(start),
+        end: toTime(end),
+        color
+      }))
+      const { start } = setsAsTime[0]
+      const lastSetHour = setsAsTime[setsAsTime.length - 1].start.hour
+      const biggestEndHour = lastSetHour + minHours
+      const endHour = biggestEndHour < HOURS_IN_DAY ? biggestEndHour : HOURS_IN_DAY
+      const startSeconds = start.hour * SECONDS_IN_HOUR + start.minute * SECONDS_IN_MINUTE + start.second
+      const secondsInInterval = endHour * SECONDS_IN_HOUR - startSeconds
+      return (
+        <React.Fragment>
+          <Periods>
+            {setsAsTime.map((set, key) => (
+              <Period {...{ ...set, key, beginning: start, secondsInInterval }} />)
+            )}
+          </Periods>
+        </React.Fragment>
+      )
+    }
 
     return (
       <ThemeProvider theme={{ ...defaultTheme, ...theme }}>
         <Wrapper ref={el => (this.wrapper = el)}>
-          
+          {sets && sets.length > 0 && <Content />}
         </Wrapper>
       </ThemeProvider>
     )
