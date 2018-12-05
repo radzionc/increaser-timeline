@@ -1,20 +1,12 @@
 import React from 'react'
-import styled, { ThemeProvider } from 'styled-components'
+import { ThemeProvider } from 'styled-components'
 
 import { defaultTheme, DEFAULT_MIN_HOURS, HOURS_IN_DAY, SECONDS_IN_HOUR, SECONDS_IN_MINUTE } from '../constants'
 import { toTime } from '../utils'
 
+import Container from './container'
 import Period from './period'
-
-const Periods = styled.div`
-  height: 100%;
-  display: flex;
-  position: relative;
-  flex-direction: row;
-  border-radius: 5px;
-  background-color: ${props => props.theme.backgroundColor};
-  overflow: hidden;
-`
+import Time from './time'
 
 export default class Timeline extends React.Component {
   constructor(props) {
@@ -41,11 +33,15 @@ export default class Timeline extends React.Component {
       const secondsInInterval = endHour * SECONDS_IN_HOUR - startSeconds
       return (
         <React.Fragment>
-          <Periods>
+          <Container>
             {setsAsTime.map((set, key) => (
               <Period {...{ ...set, key, beginning: start, secondsInInterval }} />)
             )}
-          </Periods>
+          </Container>
+          <Time
+            start={start}
+            endHour={endHour}
+          />
         </React.Fragment>
       )
     }

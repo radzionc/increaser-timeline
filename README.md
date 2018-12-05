@@ -4,7 +4,7 @@
 
 [![NPM](https://img.shields.io/npm/v/increaser-timeline.svg)](https://www.npmjs.com/package/increaser-timeline) [![JavaScript Style Guide](https://img.shields.io/badge/code_style-standard-brightgreen.svg)](https://standardjs.com)
 
-![alt text](https://cdn-images-1.medium.com/max/2000/1*FSPccrD-tfhlbniF8sJluQ.gif)
+![alt text](https://cdn-images-1.medium.com/max/2000/1*x82VVUaS-xuLv-BzjTn_wQ.gif)
 
 ## [Demo](https://rodionchachura.github.io/increaser-timeline/)
 
@@ -19,7 +19,7 @@ npm install --save increaser-timeline
 ```jsx
 import React from 'react'
 
-import timeline from 'increaser-timeline'
+import Timeline from 'increaser-timeline'
 
 const Container = ({ children }) => (
   <div style={{ height: '100vh' width: '100%' }}>
@@ -30,38 +30,21 @@ const Container = ({ children }) => (
 class Example extends React.Component {
   constructor(props) {
     super(props)
-    const startTime = Date.now()
-    this.state = {
-      startTime,
-      duration: 1,
-      timeNow: startTime
-    }
-    setInterval(() => {
-      const timeNow = Date.now()
-      const { startTime, duration } = this.state
-      this.setState({ timeNow })
-      if (timeNow - startTime > duration * 60 * 1000) {
-        this.setState({ startTime: timeNow })
-      }
-    }, 500)
+    this.state = { sets: [] }
   }
 
   render() {
-    const { duration, startTime, timeNow } = this.state
+    const { sets } = this.state
     return (
-      <timeline
+      <Timeline
         wrapper={Container}
-        startTime={startTime}
-        duration={duration}
-        timeNow={timeNow}
-        showTimeInTitle={true}
-        handleBeforeUnload={true}
+        sets={sets}
       />
     )
   }
 }
 ```
-## [Story on Medium](https://medium.com/p/cb76422f84bb)
+## [Story on Medium](https://medium.com/p/124bdfe727db)
 
 ## License
 

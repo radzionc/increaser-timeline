@@ -5,5 +5,5 @@ export const defaultTheme = {
 
 export const HOURS_IN_DAY = 24
 export const SECONDS_IN_MINUTE = 60
-export const SECONDS_IN_HOUR = SECONDS_IN_MINUTE**2
+export const SECONDS_IN_HOUR = SECONDS_IN_MINUTE ** 2
 export const DEFAULT_MIN_HOURS = 8

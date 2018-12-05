@@ -1,7 +1,7 @@
 {
   "name": "increaser-timeline-example",
   "homepage": "https://RodionChachura.github.io/increaser-timeline",
-  "version": "1.0.2",
+  "version": "1.0.0",
   "license": "MIT",
   "private": true,
   "dependencies": {

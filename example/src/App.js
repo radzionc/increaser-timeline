@@ -48,11 +48,8 @@ const TimeWaitsForNoOne = styled.a`
 const ContainerWrapper = styled.div`
   display: flex;
   flex-direction: column;
-  height: 160px;
-  width: 400px;
-  @media (max-width: 640px) {
-    height: 120px;
-  }
+  height: 200px;
+  width: 500px;
 `
 
 const START_HOUR = 9
