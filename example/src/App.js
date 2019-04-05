@@ -63,7 +63,7 @@ const COLORS = [
   '#85144b',
   '#FF851B',
   '#B10DC9',
-  '#AAAAAA',
+  '#AAAAAA'
 ]
 
 const getRandomDuration = () => Math.round(Math.random() * 60) * 60
