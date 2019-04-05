@@ -65,7 +65,9 @@ export default class Timeline extends React.Component {
   }
 
   onResize = () => {
-    const { width, height } = this.wrapper.getBoundingClientRect()
-    this.setState({ width, height })
+    if (this.wrapper) {
+      const { width, height } = this.wrapper.getBoundingClientRect()
+      this.setState({ width, height })
+    }
   }
 }

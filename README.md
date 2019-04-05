@@ -2,7 +2,7 @@
 
 > 
 
-[![NPM](https://img.shields.io/npm/v/increaser-timeline.svg)](https://www.npmjs.com/package/increaser-timeline) [![JavaScript Style Guide](https://img.shields.io/badge/code_style-standard-brightgreen.svg)](https://standardjs.com)
+[![NPM](https://img.shields.io/npm/v/increaser-timeline.svg)](https://www.npmjs.com/package/increaser-timeline)
 
 ![alt text](https://cdn-images-1.medium.com/max/2000/1*x82VVUaS-xuLv-BzjTn_wQ.gif)
 
@@ -26,6 +26,12 @@ const Container = ({ children }) => (
     {children}
   </div>
 )
+
+// optional
+const theme = {
+  textColor: 'white',
+  backgroundColor: 'rgba(255, 255, 255, 0.14)'
+}
 
 class Example extends React.Component {
   constructor(props) {
