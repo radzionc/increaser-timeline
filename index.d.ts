@@ -14,6 +14,7 @@ export interface Set {
 export interface Props {
   wrapper: React.Component;
   sets: Set[];
+  offset?: number;
   minHours: number;
   theme: Theme
 }

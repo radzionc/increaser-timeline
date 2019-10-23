@@ -18,11 +18,11 @@ export default class Timeline extends React.Component {
   }
 
   render() {
-    const { wrapper: Wrapper, theme, sets, minHours = DEFAULT_MIN_HOURS } = this.props
+    const { wrapper: Wrapper, theme, sets, minHours = DEFAULT_MIN_HOURS, offset } = this.props
     const Content = () => {
       const setsAsTime = sets.map(({ start, end, color }) => ({
-        start: toTime(start),
-        end: toTime(end),
+        start: toTime(start, offset),
+        end: toTime(end, offset),
         color
       }))
       const { start } = setsAsTime[0]
