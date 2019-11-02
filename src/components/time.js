@@ -8,8 +8,9 @@ const Line = styled.div`
   align-items: flex-start;
   color: ${props => props.theme.textColor};
 `
-const format = (hour, minute) =>
-  `${hour < 12 ? hour : hour - 12}${minute ? `:${minute}` : ''} ${hour < 12 ? 'AM' : 'PM'}`
+const format = (hour, minute) => {
+  return `${(hour % 12) || 12}${minute ? `:${minute.padStart(2, '0')}` : ''} ${hour >= 12 ? 'PM' : 'AM'}`
+}
 
 export default ({ start, endHour }) => {
   return (
