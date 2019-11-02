@@ -9,7 +9,7 @@ const Line = styled.div`
   color: ${props => props.theme.textColor};
 `
 const format = (hour, minute) => {
-  return `${(hour % 12) || 12}${minute ? `:${minute.padStart(2, '0')}` : ''} ${hour >= 12 ? 'PM' : 'AM'}`
+  return `${(hour % 12) || 12}${minute ? `:${minute.toString().padStart(2, '0')}` : ''} ${hour >= 12 ? 'PM' : 'AM'}`
 }
 
 export default ({ start, endHour }) => {
