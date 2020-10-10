@@ -50,7 +50,7 @@ class Example extends React.Component {
   }
 }
 ```
-## [Story on Medium](https://medium.com/p/124bdfe727db)
+## [Blog Post](https://geekrodion.com/blog/timeline-react)
 
 ## License
 
