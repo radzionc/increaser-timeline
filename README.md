@@ -6,7 +6,7 @@
 
 ![alt text](https://cdn-images-1.medium.com/max/2000/1*x82VVUaS-xuLv-BzjTn_wQ.gif)
 
-## [Demo](https://rodionchachura.github.io/increaser-timeline/)
+## [Demo](https://radzionc.github.io/increaser-timeline/)
 
 ## Install
 
